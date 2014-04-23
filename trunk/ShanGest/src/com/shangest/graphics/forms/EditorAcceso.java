@@ -192,11 +192,10 @@ public class EditorAcceso extends JFrame {
 	 * Non Graphic block
 	 * */
 	
-	@SuppressWarnings("deprecation")
 	private void onlineButtonAction() {
 		App.onlineConn = MysqlConnector.getInstance();
 
-		if (App.onlineConn.login(textField.getText().trim(), textField_1.getText().trim())) {
+		if (App.onlineConn.login(textField.getText().trim(), new String(textField_1.getPassword()).trim())) {
 			App.offlineConn = null;
 			App.setConnectorMode(App.ONLINE);
 			setVisible(false);
