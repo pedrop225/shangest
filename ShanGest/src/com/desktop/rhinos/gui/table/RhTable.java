@@ -2,6 +2,7 @@ package com.desktop.rhinos.gui.table;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,13 +11,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.GregorianCalendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -25,7 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import com.adobe.acrobat.Viewer;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
@@ -180,10 +178,11 @@ public abstract class RhTable extends JPanel {
 	}
 	
 	private void openPrintableView(){
+		/*
 		JFrame d = new JFrame();
 		d.setSize(540, 480);
 		d.setTitle("Version Imprimible");
-		d.setLayout(new BorderLayout());
+		d.setLayout(new BorderLayout());*/
 		
 		try {
 			//Creating document
@@ -244,16 +243,19 @@ public abstract class RhTable extends JPanel {
             
 			doc.close();
 			
+			// open system editor
+			Desktop.getDesktop().open(temp);
+/*			
 			//Reading document
 			Viewer v = new Viewer();
 			v.setDocumentInputStream(new FileInputStream(temp));
 			v.activate();
-			d.add(v);
+			d.add(v);*/
 		} 
 		catch (Exception e) {e.printStackTrace();}
-		
+	/*	
 		d.setLocationRelativeTo(null);
-		d.setVisible(true);
+		d.setVisible(true);*/
 	}
 	
 	protected float[] getWidthsPrintableView() {

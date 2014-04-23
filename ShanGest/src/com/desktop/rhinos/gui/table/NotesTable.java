@@ -65,7 +65,7 @@ public class NotesTable extends RhTable {
 	}
 	
 	protected float[] getWidthsPrintableView() {
-		float[] i={10f, 25f, 7f, 15f};
+		float[] i={25f, 25f};
 		return i;
 	}
 	

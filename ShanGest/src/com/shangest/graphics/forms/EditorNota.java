@@ -2,15 +2,17 @@ package com.shangest.graphics.forms;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Date;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -23,7 +25,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import com.adobe.acrobat.Viewer;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
@@ -32,8 +33,6 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.shangest.base.Note;
 import com.shangest.connector.Connector.App;
-import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class EditorNota extends JFrame {
 
@@ -236,11 +235,12 @@ public class EditorNota extends JFrame {
 	}
 	
 	private void openPrintableView(){
+		/*
 		JFrame d = new JFrame();
 		d.setSize(540, 480);
 		d.setTitle("Version Imprimible");
 		d.getContentPane().setLayout(new BorderLayout());
-		
+		*/
 		try {
 			//Creating document
 			Document doc = new Document(PageSize.A4, 30, 30, 30, 30);
@@ -260,16 +260,19 @@ public class EditorNota extends JFrame {
             
 			doc.close();
 			
+			//open system viewer
+			Desktop.getDesktop().open(temp);
+	/*		
 			//Reading document
 			Viewer v = new Viewer();
 			v.setDocumentInputStream(new FileInputStream(temp));
 			v.activate();
-			d.getContentPane().add(v);
+			d.getContentPane().add(v);*/
 		} 
 		catch (Exception e) {e.printStackTrace();}
-		
+		/*
 		d.setLocationRelativeTo(null);
-		d.setVisible(true);
+		d.setVisible(true);*/
 	}
 	
 	protected String getPrintableTitle(){
