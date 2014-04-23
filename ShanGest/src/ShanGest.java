@@ -37,7 +37,7 @@ public class ShanGest {
 				
 				try {
 					while (eacc.isVisible()) {
-						Thread.sleep(25);
+						Thread.sleep(500);
 					}
 					
 					sgf.setConnectorMode(App.getConnectorMode());

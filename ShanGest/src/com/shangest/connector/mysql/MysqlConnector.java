@@ -34,7 +34,7 @@ import com.shangest.connector.disk.LocalConnector;
 
 public class MysqlConnector implements Connector {
 
-	private static final String EXTERNAL_PATH = "http://shangest.zzl.org/desktopApp";
+	private static final String EXTERNAL_PATH = "http://sgest.netai.net/desktopApp";
 	
 	private RCipher cipher;
 	public static SimpleDateFormat FORMATTER_DATE_EN;
@@ -52,7 +52,7 @@ public class MysqlConnector implements Connector {
 		FORMATTER_DATETIME_CUSTOM = new SimpleDateFormat("dd-MM-yyyy [HH:mm:ss]");
 		
 		try {
-			SecretKey key = RCipher.importKeyFromUrl("http://pedrop225.comuf.com/rhinos/security/security.keys");
+			SecretKey key = RCipher.importKeyFromUrl(EXTERNAL_PATH+"/security/security.keys");
 			cipher = new RCipher(key);
 		}
 		catch (Exception e) {}		
