@@ -2,16 +2,18 @@ package com.shangest.graphics.forms;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +28,6 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import com.adobe.acrobat.Viewer;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
@@ -40,8 +41,6 @@ import com.shangest.base.Signo;
 import com.shangest.connector.Connector.App;
 import com.shangest.graphics.forms.util.RepresentaSigno;
 import com.toedter.calendar.JDateChooser;
-import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class EditorConsulta extends JFrame {
 
@@ -417,10 +416,11 @@ public class EditorConsulta extends JFrame {
 	}
 	
 	private void openPrintableView(){
+		/*
 		JFrame d = new JFrame();
 		d.setSize(540, 480);
 		d.setTitle("Version Imprimible");
-		d.getContentPane().setLayout(new BorderLayout());
+		d.getContentPane().setLayout(new BorderLayout());*/
 		
 		try {
 			//Creating document
@@ -472,16 +472,19 @@ public class EditorConsulta extends JFrame {
             
 			doc.close();
 			
+			//open system viewer
+			Desktop.getDesktop().open(temp);
+	/*		
 			//Reading document
 			Viewer v = new Viewer();
 			v.setDocumentInputStream(new FileInputStream(temp));
 			v.activate();
-			d.getContentPane().add(v);
+			d.getContentPane().add(v);*/
 		} 
 		catch (Exception e) {e.printStackTrace();}
-		
+		/*
 		d.setLocationRelativeTo(null);
-		d.setVisible(true);
+		d.setVisible(true);*/
 	}
 	
 	protected float[] getWidthsPrintableView() {
