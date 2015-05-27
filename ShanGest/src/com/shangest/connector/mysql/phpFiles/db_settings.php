@@ -1,6 +1,6 @@
 <?php
-	$mysql_host = "shangest.zzl.org";
-	$mysql_database = "shangest_zzl_sgdb";
-	$mysql_user = "723017_app";
-	$mysql_password = "orumila";
+	$mysql_host = "pedroapvnet.ipagemysql.com";
+	$mysql_database = "shangest_db";
+	$mysql_user = "app";
+	$mysql_password = "8634331";
 ?>
