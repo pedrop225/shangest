@@ -34,7 +34,7 @@ import com.shangest.connector.disk.LocalConnector;
 
 public class MysqlConnector implements Connector {
 
-	private static final String EXTERNAL_PATH = "http://sgest.netai.net/desktopApp";
+	private static final String EXTERNAL_PATH = "http://www.pedroapv.net/services/shangest";
 	
 	private RCipher cipher;
 	public static SimpleDateFormat FORMATTER_DATE_EN;
